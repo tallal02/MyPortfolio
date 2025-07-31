@@ -83,7 +83,7 @@ export default function HomePage() {
                   asChild
                   className="transition-all duration-300 hover:scale-110 hover:bg-blue-50 dark:hover:bg-blue-900/20"
                 >
-                  <a href="https://linkedin.com/in/muhammadtallaleatazaz" target="_blank" rel="noopener noreferrer">
+                  <a href="https://linkedin.com/in/muhammad-tallal-eatazaz-/" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="w-5 h-5 transition-all duration-300 hover:text-blue-600 dark:hover:text-blue-400" />
                   </a>
                 </Button>

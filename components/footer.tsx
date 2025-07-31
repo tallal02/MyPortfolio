@@ -21,7 +21,7 @@ export function Footer() {
                 </a>
               </Button>
               <Button variant="ghost" size="icon" asChild>
-                <a href="https://linkedin.com/in/muhammadtallaleatazaz" target="_blank" rel="noopener noreferrer">
+                <a href="https://linkedin.com/in/muhammad-tallal-eatazaz-/" target="_blank" rel="noopener noreferrer">
                   <Linkedin className="w-4 h-4" />
                 </a>
               </Button>
