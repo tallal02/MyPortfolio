@@ -1,10 +1,16 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Download, Github, Linkedin, Mail, MapPin, Calendar, Award, Code, Brain, Cloud } from "lucide-react"
+import { Download, Github, Linkedin, Mail, MapPin, Calendar, Award, Code, Brain, Cloud, ChevronDown, ChevronUp } from "lucide-react"
 import Link from "next/link"
+import { useState } from "react"
+
 
 export default function HomePage() {
+  const [showResumes, setShowResumes] = useState(false)
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -12,6 +18,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="flex justify-center items-center">
             <div className="text-center space-y-6 max-w-4xl">
+              {/* Your existing content... */}
               <div className="space-y-4">
                 <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white transition-all duration-700 hover:scale-105 transform">
                   <span className="text-blue-600 dark:text-blue-400 transition-colors duration-300 hover:text-blue-700 dark:hover:text-blue-300">
@@ -28,83 +35,83 @@ export default function HomePage() {
               </div>
 
               <div className="flex flex-wrap justify-center gap-3">
-                <Badge
-                  variant="secondary"
-                  className="px-3 py-1 transition-all duration-300 hover:scale-105 hover:shadow-md"
-                >
+                {/* Your badges remain unchanged */}
+                <Badge variant="secondary" className="px-3 py-1 transition-all duration-300 hover:scale-105 hover:shadow-md">
                   <Brain className="w-4 h-4 mr-1 transition-transform duration-300 hover:rotate-12" />
                   Artificial Intelligence
                 </Badge>
-                <Badge
-                  variant="secondary"
-                  className="px-3 py-1 transition-all duration-300 hover:scale-105 hover:shadow-md"
-                >
+                <Badge variant="secondary" className="px-3 py-1 transition-all duration-300 hover:scale-105 hover:shadow-md">
                   <Code className="w-4 h-4 mr-1 transition-transform duration-300 hover:rotate-12" />
                   Full-Stack Development
                 </Badge>
-                <Badge
-                  variant="secondary"
-                  className="px-3 py-1 transition-all duration-300 hover:scale-105 hover:shadow-md"
-                >
+                <Badge variant="secondary" className="px-3 py-1 transition-all duration-300 hover:scale-105 hover:shadow-md">
                   .NET Development
                 </Badge>
-                <Badge
-                  variant="secondary"
-                  className="px-3 py-1 transition-all duration-300 hover:scale-105 hover:shadow-md"
-                >
+                <Badge variant="secondary" className="px-3 py-1 transition-all duration-300 hover:scale-105 hover:shadow-md">
                   <Cloud className="w-4 h-4 mr-1 transition-transform duration-300 hover:rotate-12" />
                   AWS Cloud
                 </Badge>
               </div>
 
-              <div className="flex flex-wrap justify-center gap-4">
+              <div className="flex flex-col items-center gap-4">
                 <Button asChild className="transition-all duration-300 hover:scale-105 hover:shadow-lg">
                   <Link href="/contact">
                     <Mail className="w-4 h-4 mr-2 transition-transform duration-300 hover:rotate-12" />
                     Get In Touch
                   </Link>
                 </Button>
+
                 <Button
                   variant="outline"
-                  asChild
-                  className="transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 bg-transparent"
+                  className="transition-all duration-300 hover:scale-105 hover:shadow-lg bg-transparent"
+                  onClick={() => setShowResumes(!showResumes)}
                 >
-                  <a href="#" download>
-                    <Download className="w-4 h-4 mr-2 transition-transform duration-300 hover:rotate-12" />
-                    Download Resumes
-                  </a>
+                  <Download className="w-4 h-4 mr-2 transition-transform duration-300 hover:rotate-12" />
+                  Download Resumes
+                  {showResumes ? <ChevronUp className="w-4 h-4 ml-2" /> : <ChevronDown className="w-4 h-4 ml-2" />}
                 </Button>
+
+                {showResumes && (
+                              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4 w-full max-w-xl">
+                                <Button variant="outline" className="justify-start" asChild>
+                                  <a href="/Muhammad_Tallal_Eatazaz_Resume_AI.pdf" download>
+                                    🎓 AI Resume
+                                  </a>
+                                </Button>
+                                <Button variant="outline" className="justify-start" asChild>
+                                  <a href="/Muhammad_Tallal_Eatazaz_Resume_FS.pdf" download>
+                                    💻 Full-Stack Resume
+                                  </a>
+                                </Button>
+                                <Button variant="outline" className="justify-start" asChild>
+                                  <a href="/Muhammad_Tallal_Eatazaz_Resume_NET.pdf" download>
+                                    🧩 .NET Resume
+                                  </a>
+                                </Button>
+                                <Button variant="outline" className="justify-start" asChild>
+                                  <a href="/Muhammad_Tallal_Eatazaz_Resume_AW.pdf" download>
+                                    📄 AWS Resume
+                                  </a>
+                                </Button>
+                  </div>
+                )}
               </div>
 
-              <div className="flex justify-center gap-4">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  asChild
-                  className="transition-all duration-300 hover:scale-110 hover:bg-blue-50 dark:hover:bg-blue-900/20"
-                >
+              {/* Social Icons Section - unchanged */}
+              <div className="flex justify-center gap-4 mt-4">
+                <Button variant="ghost" size="icon" asChild className="hover:scale-110 hover:bg-blue-50 dark:hover:bg-blue-900/20">
                   <a href="https://linkedin.com/in/muhammad-tallal-eatazaz-/" target="_blank" rel="noopener noreferrer">
-                    <Linkedin className="w-5 h-5 transition-all duration-300 hover:text-blue-600 dark:hover:text-blue-400" />
+                    <Linkedin className="w-5 h-5 hover:text-blue-600 dark:hover:text-blue-400" />
                   </a>
                 </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  asChild
-                  className="transition-all duration-300 hover:scale-110 hover:bg-gray-50 dark:hover:bg-gray-800"
-                >
+                <Button variant="ghost" size="icon" asChild className="hover:scale-110 hover:bg-gray-50 dark:hover:bg-gray-800">
                   <a href="https://github.com/tallal02" target="_blank" rel="noopener noreferrer">
-                    <Github className="w-5 h-5 transition-all duration-300 hover:text-gray-800 dark:hover:text-gray-200" />
+                    <Github className="w-5 h-5 hover:text-gray-800 dark:hover:text-gray-200" />
                   </a>
                 </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  asChild
-                  className="transition-all duration-300 hover:scale-110 hover:bg-red-50 dark:hover:bg-red-900/20"
-                >
+                <Button variant="ghost" size="icon" asChild className="hover:scale-110 hover:bg-red-50 dark:hover:bg-red-900/20">
                   <a href="mailto:mmtallal@gmail.com">
-                    <Mail className="w-5 h-5 transition-all duration-300 hover:text-red-600 dark:hover:text-red-400" />
+                    <Mail className="w-5 h-5 hover:text-red-600 dark:hover:text-red-400" />
                   </a>
                 </Button>
               </div>
@@ -112,7 +119,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* About Section */}
       <section className="py-20 px-4 transition-all duration-500">
         <div className="max-w-6xl mx-auto">
