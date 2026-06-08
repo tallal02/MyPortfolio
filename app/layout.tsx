@@ -1,47 +1,49 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { GeistMono } from "geist/font/mono"
+import { GeistSans } from "geist/font/sans"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Toaster } from "@/components/ui/toaster"
 
-const inter = Inter({ subsets: ["latin"] })
-
 export const metadata: Metadata = {
-  title: "Muhammad Tallal Eatazaz - AI + Full-Stack + .NET + AWS Developer",
+  metadataBase: new URL("https://tallal-portfolio.vercel.app"),
+  title: {
+    default: "Muhammad Tallal Eatazaz - Production AI Engineer",
+    template: "%s - Muhammad Tallal Eatazaz",
+  },
   description:
-    "Computer Science graduate from FAST NUCES Islamabad, passionate about developing intelligent systems, robust web platforms, scalable enterprise applications, and cloud solutions.",
+    "Production AI engineer building reliable retrieval, translation, and evaluation systems for enterprise workflows.",
   keywords: [
-    "AI Developer",
-    "Full-Stack Developer",
-    ".NET Developer",
-    "AWS Developer",
+    "Production AI Engineer",
+    "RAG",
+    "Retrieval Systems",
+    "LangSmith",
+    "Machine Learning Reliability",
+    "Translation Systems",
     "React",
     "Python",
-    "C#",
-    "Machine Learning",
-    "Cloud Computing",
+    "Next.js",
   ],
   authors: [{ name: "Muhammad Tallal Eatazaz" }],
   creator: "Muhammad Tallal Eatazaz",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://muhammadtallal.com",
-    title: "Muhammad Tallal Eatazaz - AI + Full-Stack + .NET + AWS Developer",
+    url: "https://tallal-portfolio.vercel.app",
+    title: "Muhammad Tallal Eatazaz - Production AI Engineer",
     description:
-      "Computer Science graduate from FAST NUCES Islamabad, passionate about developing intelligent systems, robust web platforms, scalable enterprise applications, and cloud solutions.",
+      "Reliable retrieval, translation, and evaluation systems for enterprise AI workflows.",
     siteName: "Muhammad Tallal Eatazaz Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Muhammad Tallal Eatazaz - AI + Full-Stack + .NET + AWS Developer",
+    title: "Muhammad Tallal Eatazaz - Production AI Engineer",
     description:
-      "Computer Science graduate from FAST NUCES Islamabad, passionate about developing intelligent systems, robust web platforms, scalable enterprise applications, and cloud solutions.",
+      "Reliable retrieval, translation, and evaluation systems for enterprise AI workflows.",
   },
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -51,9 +53,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <div className="min-h-screen flex flex-col">
+      <body className={`${GeistSans.variable} ${GeistMono.variable} bg-background font-sans text-foreground antialiased`}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+          <div className="flex min-h-screen flex-col">
             <Navigation />
             <main className="flex-1">{children}</main>
             <Footer />

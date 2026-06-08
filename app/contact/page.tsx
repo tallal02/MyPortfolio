@@ -19,8 +19,7 @@ import {
   Linkedin,
   Github,
   Send,
-  ChevronDown,
-  ChevronUp
+  Download,
 } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 
@@ -32,7 +31,6 @@ export default function ContactPage() {
     message: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [showResumes, setShowResumes] = useState(false)
   const { toast } = useToast()
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -257,7 +255,7 @@ export default function ContactPage() {
           </Card>
         </div>
 
-        {/* Call to Action & Resume Downloads */}
+        {/* Call to Action & Resume Download */}
         <div className="mt-16 text-center bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8">
           <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Ready to Work Together?</h2>
           <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
@@ -273,45 +271,16 @@ export default function ContactPage() {
                 Email Me
               </a>
             </Button>
-            <Button
-              size="lg"
-              variant="default"
-              onClick={() => setShowResumes(!showResumes)}
-              className="flex items-center gap-2"
-            >
-              Download Resume
-              {showResumes ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+            <Button size="lg" variant="default" asChild>
+              <a href="/Muhammad%20Tallal%20Eatazaz_Resume_AI.pdf" download>
+                <Download className="w-5 h-5 mr-2" />
+                Download Resume
+              </a>
             </Button>
-
-            {showResumes && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4 w-full max-w-xl">
-                <Button variant="outline" className="justify-start" asChild>
-                  <a href="/Muhammad_Tallal_Eatazaz_Resume_AI.pdf" download>
-                    🎓 AI Resume
-                  </a>
-                </Button>
-                <Button variant="outline" className="justify-start" asChild>
-                  <a href="/Muhammad_Tallal_Eatazaz_Resume_FS.pdf" download>
-                    💻 Full-Stack Resume
-                  </a>
-                </Button>
-                <Button variant="outline" className="justify-start" asChild>
-                  <a href="/Muhammad_Tallal_Eatazaz_Resume_NET.pdf" download>
-                    🧩 .NET Resume
-                  </a>
-                </Button>
-                <Button variant="outline" className="justify-start" asChild>
-                  <a href="/Muhammad_Tallal_Eatazaz_Resume_AW.pdf" download>
-                    📄 AWS Resume
-                  </a>
-                </Button>
-              </div>
-            )}
           </div>
         </div>
       </div>
     </div>
   )
 }
-
 

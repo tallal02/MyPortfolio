@@ -2,104 +2,77 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Mail } from "lucide-react"
 
+const links = [
+  { label: "Home", href: "/" },
+  { label: "Experience", href: "/experience" },
+  { label: "Projects", href: "/projects" },
+  { label: "Contact", href: "/contact" },
+]
+
 export function Footer() {
   return (
-    <footer className="bg-gray-50 dark:bg-gray-900 border-t">
-      <div className="max-w-6xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand */}
-          <div className="space-y-4">
-            <h3 className="font-bold text-lg text-gray-900 dark:text-white">Muhammad Tallal Eatazaz</h3>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">
-              AI + Full-Stack + .NET + AWS Developer passionate about creating innovative solutions across multiple
-              domains.
+    <footer className="border-t border-zinc-800 bg-zinc-950">
+      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+        <div className="grid gap-8 md:grid-cols-[1.3fr_0.7fr_1fr]">
+          <div>
+            <p className="text-sm font-semibold text-zinc-50">Muhammad Tallal Eatazaz</p>
+            <p className="mt-3 max-w-md text-sm leading-6 text-zinc-400">
+              Production AI engineer focused on reliability, retrieval, and translation systems.
             </p>
+          </div>
+
+          <nav className="grid gap-2 text-sm" aria-label="Footer navigation">
+            {links.map((link) => (
+              <Link key={link.href} href={link.href} className="text-zinc-400 transition-colors hover:text-zinc-50">
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="flex flex-col gap-4 md:items-end">
             <div className="flex gap-2">
-              <Button variant="ghost" size="icon" asChild>
-                <a href="https://github.com/tallal02" target="_blank" rel="noopener noreferrer">
-                  <Github className="w-4 h-4" />
+              <Button
+                variant="ghost"
+                size="icon"
+                asChild
+                className="text-zinc-400 hover:bg-zinc-900 hover:text-zinc-50"
+              >
+                <a href="https://github.com/tallal02" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                  <Github className="h-4 w-4" />
                 </a>
               </Button>
-              <Button variant="ghost" size="icon" asChild>
-                <a href="https://linkedin.com/in/muhammad-tallal-eatazaz-/" target="_blank" rel="noopener noreferrer">
-                  <Linkedin className="w-4 h-4" />
+              <Button
+                variant="ghost"
+                size="icon"
+                asChild
+                className="text-zinc-400 hover:bg-zinc-900 hover:text-zinc-50"
+              >
+                <a
+                  href="https://linkedin.com/in/muhammad-tallal-eatazaz-/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="h-4 w-4" />
                 </a>
               </Button>
-              <Button variant="ghost" size="icon" asChild>
-                <a href="mailto:mmtallal@gmail.com">
-                  <Mail className="w-4 h-4" />
+              <Button
+                variant="ghost"
+                size="icon"
+                asChild
+                className="text-zinc-400 hover:bg-zinc-900 hover:text-zinc-50"
+              >
+                <a href="mailto:mmtallal@gmail.com" aria-label="Email">
+                  <Mail className="h-4 w-4" />
                 </a>
               </Button>
             </div>
-          </div>
-
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-gray-900 dark:text-white">Quick Links</h4>
-            <div className="space-y-2">
-              <Link
-                href="/"
-                className="block text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
-              >
-                Home
-              </Link>
-              <Link
-                href="/skills"
-                className="block text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
-              >
-                Skills
-              </Link>
-              <Link
-                href="/projects"
-                className="block text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
-              >
-                Projects
-              </Link>
-              <Link
-                href="/experience"
-                className="block text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
-              >
-                Experience
-              </Link>
-              <Link
-                href="/certifications"
-                className="block text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
-              >
-                Certifications
-              </Link>
-            </div>
-          </div>
-
-          {/* Services */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-gray-900 dark:text-white">Services</h4>
-            <div className="space-y-2">
-              <p className="text-sm text-gray-600 dark:text-gray-400">AI/ML Development</p>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Full-Stack Development</p>
-              <p className="text-sm text-gray-600 dark:text-gray-400">.NET Applications</p>
-              <p className="text-sm text-gray-600 dark:text-gray-400">AWS Cloud Solutions</p>
-            </div>
-          </div>
-
-          {/* Contact */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-gray-900 dark:text-white">Get In Touch</h4>
-            <div className="space-y-2">
-              <p className="text-sm text-gray-600 dark:text-gray-400">mmtallal@gmail.com</p>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Islamabad, Pakistan</p>
-              <Button asChild className="w-full mt-4">
-                <Link href="/contact">Contact Me</Link>
-              </Button>
-            </div>
+            <p className="font-mono text-xs text-zinc-500">Islamabad, Pakistan</p>
           </div>
         </div>
 
-        <div className="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8">
-          <div className="text-center">
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              © 2024 Muhammad Tallal Eatazaz. All rights reserved.
-            </p>
-          </div>
+        <div className="mt-8 border-t border-zinc-800 pt-6">
+          <p className="text-xs text-zinc-500">Copyright 2026 Muhammad Tallal Eatazaz. All rights reserved.</p>
         </div>
       </div>
     </footer>
